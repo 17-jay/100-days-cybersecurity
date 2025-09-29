@@ -1,12 +1,12 @@
-#Day 01 - TryHackMe Lab: FakeBank
+# Day 01 - TryHackMe Lab: FakeBank
 
-##Task Overview
+## Task Overview
 Explored a simulated vulnerable banking web app using directory brute forcing.
 
-##Tools used
+## Tools used
 - **dirb**: a command-line tool for brute-forcing web server directories/files.
 
-##Steps
+## Steps
 1. Ran `dirb` against the FakeBank URL provided by TryHackMe:
    bash command
    dirb <fakebank-url>
