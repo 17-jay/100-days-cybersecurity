@@ -159,3 +159,81 @@ sudo apt upgrade
     #-  - Absence of a specific permission
 
 
+##Searching files
+#Search a specific string
+grep "string_to_search" filename
+grep "error" /var/log/syslog
+
+#Case-insensitive search (-i). every case of "pattern"
+grep -i "pattern" filename
+
+#whole word search. only the given word will be searched
+grep -w "word" filename
+
+#Counting occurrences (-c). This will output the number of lines where the pattern is found, not the lines themselves.
+grep -c "pattern" filename
+
+#This will search for the pattern in all files within the specified directory and its subdirectories
+grep -r "pattern" directory/
+
+#Inverting the search (-v). This will display all lines that do not contain the specified pattern
+grep -v "pattern" filename
+
+#Showing line numbers (-n).This will display the matching lines along with their corresponding line numbers
+grep -n "pattern" filename
+
+#Displaying lines before/after/around a match (-A, -B, -C)
+grep -A 3 "pattern" filename  # Shows 3 lines after the match
+grep -B 2 "pattern" filename  # Shows 2 lines before the match
+grep -C 1 "pattern" filename  # Shows 1 line before and 1 line after the match
+
+#find lines starting with a specific word
+grep "^word" filename
+
+# find lines ending with a specific word
+grep "word$" filename
+
+
+
+
+
+
+# find files and directories within the current working directory
+find .
+
+#find files and directories within a specific directory
+find /var/log
+
+#To find a file with an exact name (case-sensitive)
+find /path/to/search -name "filename.txt"
+
+# find a file by name (case-insensitive)
+find /path/to/search -iname "filename.txt"
+
+# find files matching a pattern (e.g., all .log files)
+find /path/to/search -name "*.log"
+
+# only files
+find /path/to/search -type f
+
+#only directories
+find /path/to/search -type d
+
+# find files larger than 50MB
+find /path/to/search -type f -size +50M
+
+# find files smaller than 10KB
+find /path/to/search -type f -size -10k
+
+# find files modified within the last 10 days
+find /path/to/search -mtime -10
+
+# find files modified more than 30 days ago
+find /path/to/search -mtime +30
+
+##Executing Commands on Found Items
+# find and delete all .tmp files
+find /path/to/search -name "*.tmp" -delete
+
+#find all .sh files and change their permissions to 755
+find /path/to/search -name "*.sh" -exec chmod 755 {} \;
