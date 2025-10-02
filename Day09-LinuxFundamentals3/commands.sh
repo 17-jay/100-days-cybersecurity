@@ -95,3 +95,6 @@ crontab -e
 
 # List current crontab entries
 crontab -l
+
+# Remove current crontab
+crontab -r
